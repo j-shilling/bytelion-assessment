@@ -11,7 +11,7 @@ import ColorCardContainer from './ColorCardContainer';
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [messages, setMessages] = useState(['test message']);
+  const [messages, setMessages] = useState([]);
   const [comments, setComments] = useState([]);
 
   const removeMessage = (msg) => {
