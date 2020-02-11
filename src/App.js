@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 import logo from './resources/bytelion-logo.png';
+
 import './App.css';
 
 import Login from './components/Login';
 import axios from 'axios';
 import CommentsContainer from './containers/CommentsContainer';
+import ColorCardContainer from './containers/ColorCardContainer';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -39,8 +41,7 @@ function App() {
         <p>Learn by doing and you'll be a master in no time.</p>
       </div>
 
-      <div id='color-cards-container'>
-      </div>
+      <ColorCardContainer />
 
       <ul>
         {messages.map(msg => <li>{msg}</li>)}
@@ -48,7 +49,6 @@ function App() {
 
 
 
-      <CommentsContainer comments={comments} />
     </div>
   );
 }
