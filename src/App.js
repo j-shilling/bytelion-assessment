@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login';
 import axios from 'axios';
+import CommentsContainer from './containers/CommentsContainer';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,8 @@ function App() {
       </ul>
 
       <h1>Hello, {user ? user.givenName : 'World'} </h1>
+
+      <CommentsContainer comments={comments} />
     </div>
   );
 }
