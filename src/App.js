@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login';
+import axios from 'axios';
 
 function App() {
   const [user, setUser] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    console.log("running effect");
+    axios.get('https://jsonplaceholder.typicode.com/comments')
+      .then(res => setComments(res.data));
+  }, []);
 
   return (
     <div className="App">
