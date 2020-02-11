@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import logo from '../resources/bytelion-logo.png';
@@ -19,14 +19,18 @@ const App = () => {
     setMessages(messages.filter((el) => el !== msg));
   };
 
-  const addComment = comment => {
-    const commentWithEmail = { ...comment, email: user.email };
-    setComments([commentWithEmail, ...comments]);
+  const addComment = (comment) => {
+    if (!comment.name || !comment.body) {
+      setMessages([...messages, 'Can\'t comment without a name and body']);
+    } else {
+      const commentWithEmail = {...comment, email: user.email};
+      setComments([commentWithEmail, ...comments]);
+    }
   };
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/comments')
-      .then((res) => setComments(res.data));
+        .then((res) => setComments(res.data));
   }, []);
 
   return (
@@ -45,14 +49,14 @@ const App = () => {
       </header>
 
       {messages.length ?
-        <ul>
-          {messages.map((msg, idx) => {
-            return (
-              <li onClick={() => removeMessage(msg)} key={idx}>{msg}</li>
-            );
-          })}
-        </ul> :
-        null
+                <ul>
+                  {messages.map((msg, idx) => {
+                    return (
+                      <li onClick={() => removeMessage(msg)} key={idx}>{msg}</li>
+                    );
+                  })}
+                </ul> :
+                null
       }
 
       <div id='banner'>
@@ -65,9 +69,8 @@ const App = () => {
       <ColorCardContainer />
 
       {user ?
-        <CommentForm addComment={addComment} />
-        :
-        null
+                <CommentForm addComment={addComment} /> :
+                null
       }
       <CommentsContainer comments={comments} />
     </div>
