@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import '../stylesheets/CommentForm.css';
+
 const CommentForm = ({ addComment }) => {
   const [comment, setComment] = useState({ name: "", body: "" });
 
@@ -14,8 +16,9 @@ const CommentForm = ({ addComment }) => {
     setComment({ name: '', body: '' });
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
+    return (
+        <div className="CommentForm">
+    <form  onSubmit={handleSubmit}>
       <input
         type='text'
         name='name'
@@ -33,7 +36,8 @@ const CommentForm = ({ addComment }) => {
         type='submit'
         value='Post'
       />
-    </form>
+        </form>
+        </div>
   );
 };
 
