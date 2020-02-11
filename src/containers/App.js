@@ -10,6 +10,8 @@ import CommentForm from '../components/CommentForm';
 import CommentsContainer from './CommentsContainer';
 import ColorCardContainer from './ColorCardContainer';
 
+const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/comments';
+
 const App = () => {
   const [user, setUser] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -25,11 +27,16 @@ const App = () => {
     } else {
       const commentWithEmail = {...comment, email: user.email};
       setComments([commentWithEmail, ...comments]);
+      axios.post(API_ENDPOINT, commentWithEmail)
+          .catch((error) => {
+            console.log(error);
+            setMessages([...messages, 'New comment did not save!']);
+          });
     }
   };
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/comments')
+    axios.get(API_ENDPOINT)
         .then((res) => setComments(res.data));
   }, []);
 
