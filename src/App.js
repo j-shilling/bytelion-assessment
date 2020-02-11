@@ -47,8 +47,7 @@ function App() {
         {messages.map(msg => <li>{msg}</li>)}
       </ul>
 
-
-
+      <CommentsContainer comments={comments} />
     </div>
   );
 }
