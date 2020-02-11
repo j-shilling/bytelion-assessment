@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import logo from '../resources/bytelion-logo.png';
 import '../stylesheets/App.css';
 
 import Login from '../components/Login';
+import CommentForm from '../components/CommentForm';
 
 import CommentsContainer from './CommentsContainer';
 import ColorCardContainer from './ColorCardContainer';
@@ -18,9 +19,14 @@ const App = () => {
     setMessages(messages.filter((el) => el !== msg));
   };
 
+  const addComment = comment => {
+    const commentWithEmail = { ...comment, email: user.email };
+    setComments([commentWithEmail, ...comments]);
+  };
+
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/comments')
-        .then((res) => setComments(res.data));
+      .then((res) => setComments(res.data));
   }, []);
 
   return (
@@ -58,6 +64,11 @@ const App = () => {
 
       <ColorCardContainer />
 
+      {user ?
+        <CommentForm addComment={addComment} />
+        :
+        null
+      }
       <CommentsContainer comments={comments} />
     </div>
   );
