@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import logo from '../resources/bytelion-logo.png';
@@ -11,12 +11,16 @@ import ColorCardContainer from './ColorCardContainer';
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(['test message']);
   const [comments, setComments] = useState([]);
+
+  const removeMessage = msg => {
+    setMessages(messages.filter(el => el !== msg));
+  };
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/comments')
-        .then((res) => setComments(res.data));
+      .then((res) => setComments(res.data));
   }, []);
 
   return (
@@ -34,6 +38,18 @@ const App = () => {
         </div>
       </header>
 
+      {messages.length ?
+        <ul>
+          {messages.map((msg, idx) => {
+            return (
+              <li onClick={() => removeMessage(msg)} key={idx}>{msg}</li>
+            );
+          })}
+        </ul>
+        :
+        null
+      }
+
       <div id='banner'>
         <h1>Hi {user ? user.givenName : 'User'}! </h1>
         <p>Color really isn't that difficult to get right, if you know
@@ -42,10 +58,6 @@ const App = () => {
       </div>
 
       <ColorCardContainer />
-
-      <ul>
-        {messages.map((msg) => <li>{msg}</li>)}
-      </ul>
 
       <CommentsContainer comments={comments} />
     </div>
