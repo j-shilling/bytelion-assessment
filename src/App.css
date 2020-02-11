@@ -20,3 +20,20 @@
     grid-column: 3;
     text-align: left;
 }
+
+#banner {
+    height: 400px;
+    background-color: grey;
+    color: white;
+
+    padding-top: 75px;
+}
+
+#banner > h1 {
+    font-size: 75px;
+    margin-bottom: 0px;
+}
+
+#banner > p {
+    margin: 5px;
+}

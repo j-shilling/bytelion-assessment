@@ -33,11 +33,17 @@ function App() {
         </div>
       </header>
 
+      <div id='banner'>
+        <h1>Hi {user ? user.givenName : 'User'}! </h1>
+        <p>Color really isn't that difficult to get right, if you know where to start.</p>
+        <p>Learn by doing and you'll be a master in no time.</p>
+      </div>
+
       <ul>
         {messages.map(msg => <li>{msg}</li>)}
       </ul>
 
-      <h1>Hello, {user ? user.givenName : 'World'} </h1>
+
 
       <CommentsContainer comments={comments} />
     </div>
