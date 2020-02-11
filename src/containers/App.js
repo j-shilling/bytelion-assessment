@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import logo from '../resources/bytelion-logo.png';
@@ -14,13 +14,13 @@ const App = () => {
   const [messages, setMessages] = useState(['test message']);
   const [comments, setComments] = useState([]);
 
-  const removeMessage = msg => {
-    setMessages(messages.filter(el => el !== msg));
+  const removeMessage = (msg) => {
+    setMessages(messages.filter((el) => el !== msg));
   };
 
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/comments')
-      .then((res) => setComments(res.data));
+        .then((res) => setComments(res.data));
   }, []);
 
   return (
@@ -45,8 +45,7 @@ const App = () => {
               <li onClick={() => removeMessage(msg)} key={idx}>{msg}</li>
             );
           })}
-        </ul>
-        :
+        </ul> :
         null
       }
 
