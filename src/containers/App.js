@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import logo from '../resources/bytelion-logo.png';
@@ -15,9 +15,9 @@ function App() {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    console.log("running effect");
+    console.log('running effect');
     axios.get('https://jsonplaceholder.typicode.com/comments')
-      .then(res => setComments(res.data));
+        .then((res) => setComments(res.data));
   }, []);
 
   return (
@@ -30,7 +30,7 @@ function App() {
           <Login
             user={user}
             setUser={setUser}
-            addErrorMessage={msg => setMessages([...messages, msg])}
+            addErrorMessage={(msg) => setMessages([...messages, msg])}
           />
         </div>
       </header>
@@ -44,7 +44,7 @@ function App() {
       <ColorCardContainer />
 
       <ul>
-        {messages.map(msg => <li>{msg}</li>)}
+        {messages.map((msg) => <li>{msg}</li>)}
       </ul>
 
       <CommentsContainer comments={comments} />

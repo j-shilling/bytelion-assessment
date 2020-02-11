@@ -1,7 +1,7 @@
 import React from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import {GoogleLogin, GoogleLogout} from 'react-google-login';
 
-const Login = ({ user, setUser, addErrorMessage }) => {
+const Login = ({user, setUser, addErrorMessage}) => {
   const handleLogin = (res) => {
     setUser(res.profileObj);
   };

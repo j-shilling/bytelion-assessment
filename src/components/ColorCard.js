@@ -2,8 +2,8 @@ import React from 'react';
 
 import '../stylesheets/ColorCard.css';
 
-const ColorCard = ({ data }) => {
-  const { logo, title, body } = data;
+const ColorCard = ({data}) => {
+  const {logo, title, body} = data;
   return (
     <div className="ColorCard">
       <img src={logo} alt="color icon" />
