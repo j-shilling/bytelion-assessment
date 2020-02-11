@@ -33,9 +33,9 @@ const Login = ({ user, setUser, addErrorMessage }) => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       {loginOrLogoutButton()}
-    </div>
+    </React.Fragment>
   );
 };
 
