@@ -39,6 +39,9 @@ function App() {
         <p>Learn by doing and you'll be a master in no time.</p>
       </div>
 
+      <div id='color-cards-container'>
+      </div>
+
       <ul>
         {messages.map(msg => <li>{msg}</li>)}
       </ul>

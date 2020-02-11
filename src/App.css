@@ -22,11 +22,11 @@
 }
 
 #banner {
-    height: 400px;
     background-color: grey;
     color: white;
 
-    padding-top: 75px;
+    padding: 50px 0 250px 0;
+    margin-bottom: -125px;
 }
 
 #banner > h1 {
@@ -36,4 +36,9 @@
 
 #banner > p {
     margin: 5px;
+}
+
+#color-cards-container {
+    height: 300px;
+    border-style: solid;
 }
