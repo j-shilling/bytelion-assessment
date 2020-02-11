@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-
-import logo from './resources/bytelion-logo.png';
-
-import './App.css';
-
-import Login from './components/Login';
 import axios from 'axios';
-import CommentsContainer from './containers/CommentsContainer';
-import ColorCardContainer from './containers/ColorCardContainer';
+
+import logo from '../resources/bytelion-logo.png';
+import '../stylesheets/App.css';
+
+import Login from '../components/Login';
+
+import CommentsContainer from './CommentsContainer';
+import ColorCardContainer from './ColorCardContainer';
 
 function App() {
   const [user, setUser] = useState(null);
